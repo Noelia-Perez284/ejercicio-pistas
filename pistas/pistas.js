@@ -1,6 +1,9 @@
 let btnAgregar = document.getElementById('btnAgregar');
 let btnDuracion = document.getElementById('btnDuracion');
+
 let pistas = [];
+
+
 
 function agregarPista() {
     let identificador = document.getElementById('identificador').value;
@@ -59,8 +62,21 @@ function duracion () {
     <p> Duracion maxima : ${max}</p>`;
 }
 
+async function load (){
+    let promesa= fetch('mockPistas.json');
+    console.log(promesa);
+    let respuesta=await promesa;
+    console.log(respuesta);
+    if(respuesta.ok){
+        let t=await respuesta.json()
+        pistas=t.pistas_musicales;
+        mostrarPistas();
+    }
+}
 
 
-
+load();
 btnAgregar.addEventListener('click', agregarPista);
 btnDuracion.addEventListener('click', duracion);
+
+
