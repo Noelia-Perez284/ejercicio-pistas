@@ -63,16 +63,32 @@ function duracion () {
 }
 
 async function load (){
-    let promesa= fetch('mockPistas.json');
+    
+    let promesa= fetch('mockPistaxxs.json');
     console.log(promesa);
     let respuesta=await promesa;
-    console.log(respuesta);
+    console.log("la resp"+JSON.stringify(respuesta));
+    alert(JSON.stringify(respuesta))
+    alert("respp respp"+respuesta.ok);
     if(respuesta.ok){
+        alert();
         let t=await respuesta.json()
         pistas=t.pistas_musicales;
         mostrarPistas();
     }
 }
+
+// fetch('mockPistas.json').then(respuesta => { 
+        
+// console.log(respuesta);
+// if(respuesta.ok){
+//     let t= respuesta.json()
+//     pistas=t.pistas_musicales;
+//     mostrarPistas();
+// }
+// } 
+//     );
+
 
 
 load();

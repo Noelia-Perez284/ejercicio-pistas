@@ -1,5 +1,5 @@
 {
-  "status": "ok",
+  "cant": 29,
   "pistas_musicales": [
     {
       "identificador": 1,
@@ -12,12 +12,6 @@
       "titulo": "Uptown Funk",
       "duracion": 430,
       "interprete": "Mark Ronson ft. Bruno Mars"
-    },
-    {
-      "identificador": 3,
-      "titulo": "Can't Stop the Feeling!",
-      "duracion": 356,
-      "interprete": "Justin Timberlake"
     },
     {
       "identificador": 4,
