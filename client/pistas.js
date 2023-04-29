@@ -12,7 +12,7 @@ function agregarPista() {
     let interprete = document.getElementById('interprete').value;
 
     let nuevaPista = {
-        "identificador": Number(identificador),
+        "id": Number(identificador),
         "titulo": titulo,
         "duracion": Number(duracion),
         "interprete": interprete
@@ -30,7 +30,7 @@ function mostrarPistas() {
     for (let pista of pistas) {
         tabla +=
       `<tr>
-            <td>${pista.identificador}</td>
+            <td>${pista.id}</td>
             <td>${pista.titulo}</td>
            <td>${pista.duracion}</td>
            <td>${pista.interprete}</td>
@@ -64,19 +64,46 @@ function duracion () {
 
 async function load (){
     
-    let promesa= fetch('mockPistaxxs.json');
+    let promesa= fetch('mockPistas.json');
     console.log(promesa);
+    
     let respuesta=await promesa;
-    console.log("la resp"+JSON.stringify(respuesta));
-    alert(JSON.stringify(respuesta))
-    alert("respp respp"+respuesta.ok);
+    console.log(respuesta);
+    
+   
+    alert(respuesta.ok);
+    
     if(respuesta.ok){
-        alert();
         let t=await respuesta.json()
         pistas=t.pistas_musicales;
         mostrarPistas();
+
     }
 }
+
+
+async function load2() {
+    const url_base = "http://localhost:3000";
+    const endpoint = "/pistas";
+  
+    const respuesta = await fetch(url_base + endpoint);
+    pistas = await respuesta.json();
+    console.log(pistas);
+  
+    mostrarPistas(pistas);
+  }
+  
+    
+
+//Cargar pistas desde NestJs
+// async function cargarPistas(){
+//     let respuesta= await fetch ("/pistas");
+//     let pistasNuevas= await respuesta.json();
+//     console.log(pistasNuevas)
+
+//     mostrarPistas(pistasNuevas);
+
+// }
 
 // fetch('mockPistas.json').then(respuesta => { 
         
@@ -91,7 +118,12 @@ async function load (){
 
 
 
+// cargarPistas();
+
+
+// load();
 load();
+console.log(pistas)
 btnAgregar.addEventListener('click', agregarPista);
 btnDuracion.addEventListener('click', duracion);
 

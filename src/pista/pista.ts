@@ -1,18 +1,24 @@
 export class Pista{
     id:number;
-    nombre:string;
+    titulo:string;
     duracion:number;
     interprete:string;
+    lanzamiento:number;
+   
 
     constructor(
         id:number,
-        nombre:string,
+        titulo:string,
         duracion:number,
         interprete:string,
+        lanzamiento:number,
+       
     ){
         this.id=id;
-        this.nombre=nombre;
+        this.titulo =titulo;
         this.duracion=duracion;
         this.interprete=interprete;
+        this.lanzamiento=lanzamiento;
+        
     }
 }

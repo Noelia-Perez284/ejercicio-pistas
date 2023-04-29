@@ -1,29 +1,27 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get,Param, ParseIntPipe, Post  } from '@nestjs/common';
 import { PistaService } from './pista.service';
 import { Pista } from './pista';
 
-@Controller('pista')
+@Controller("pistas")
 export class PistaController {
-    constructor(private readonly pistaService:PistaService){}
-    
-    @Get()
-    getPistas():any{
-        const Pistas=[];
-       
-        for(let i=0; i<20;i++){
-            const pista=new Pista(i,"N"+this.pistaService.getRandomString(),360,"I"+this.pistaService.getRandomString())
-            Pistas.push(pista)
-        }
+    constructor(private readonly pistaService: PistaService) {}
 
-        const data={
-            cant:Pistas.length,
-            pistas:Pistas,
-        }
-        return data;
+    @Get() // url/pistas
+    getPistas() : Pista[] {
+      return this.pistaService.getPistas();
     }
-    @Get() // Ayuda: van a tener que colocar algo en los @Get del archivo
-    getJsonMock(): any {
-    return "retornar el archivo ../???/pistas.json"; // El archivo lo pueden quitar de la carpeta cliente si lo ven necesario
-  }
 
+    @Get(":id") // url/pistas/:id 
+    getPistasById(@Param('id',ParseIntPipe) id:number): Pista {
+      return this.pistaService.getPistaById(id);
+    }
+
+    @Post()
+    postPista(@Body() body:any){
+      //deserializar un objeto json
+      const {titulo,duracion,interprete,lanzamiento}=body;
+      this.pistaService.newPista(titulo,duracion,interprete,lanzamiento)
+      return {body}
+    }
 }
+  
