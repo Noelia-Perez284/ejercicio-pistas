@@ -9,11 +9,16 @@ export class UsersController {
 
     @Get()
     getUsers():User []{
-        return this.usersService.getUsers('./src/users/users.txt');
+        return this.usersService.getUsers();
     }
     
     @Get(":dni")
     getUsersById(@Param('dni',ParseIntPipe) dni:number):User{
+        
        return this.usersService.getUserByDni(dni)
     }
+     // @Get(":id") // url/pistas/:id 
+    // getPistasById(@Param('id',ParseIntPipe) id:number): Pista {
+    //   return this.pistaService.getPistaById(id);
+    // }
 }
