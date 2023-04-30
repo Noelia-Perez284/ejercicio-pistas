@@ -5,14 +5,13 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { PistaController } from './pista/pista.controller';
 import { PistaService } from './pista/pista.service';
-import { UsersController } from './users/users.controller';
-import { UsersService } from './users/users.service';
+
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'client') }),
   ],
-  controllers: [AppController, PistaController, UsersController],
-  providers: [AppService, PistaService, UsersService],
+  controllers: [AppController, PistaController],
+  providers: [AppService, PistaService],
 })
 export class AppModule {}
