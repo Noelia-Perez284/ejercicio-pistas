@@ -8,20 +8,20 @@ export class PistaController {
 
     @Get() // url/pistas
     getPistas() : Pista[] {
-      return this.pistaService.getPistas();
+      return this.pistaService.getPistas('./src/pista/pistas.txt');
     }
 
-    @Get(":id") // url/pistas/:id 
-    getPistasById(@Param('id',ParseIntPipe) id:number): Pista {
-      return this.pistaService.getPistaById(id);
-    }
+    // @Get(":id") // url/pistas/:id 
+    // getPistasById(@Param('id',ParseIntPipe) id:number): Pista {
+    //   return this.pistaService.getPistaById(id);
+    // }
 
-    @Post()
-    postPista(@Body() body:any){
-      //deserializar un objeto json
-      const {titulo,duracion,interprete,lanzamiento}=body;
-      this.pistaService.newPista(titulo,duracion,interprete,lanzamiento)
-      return {body}
-    }
+    // @Post()
+    // postPista(@Body() body:any){
+    //   //deserializar un objeto json
+    //   const {titulo,duracion,interprete,lanzamiento}=body;
+    //   this.pistaService.newPista(titulo,duracion,interprete,lanzamiento)
+    //   return {body}
+    // }
 }
   

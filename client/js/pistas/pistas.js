@@ -1,3 +1,5 @@
+const { async } = require("rxjs");
+
 let btnAgregar = document.getElementById('btnAgregar');
 let btnDuracion = document.getElementById('btnDuracion');
 
@@ -89,8 +91,14 @@ async function load2() {
     const respuesta = await fetch(url_base + endpoint);
     pistas = await respuesta.json();
     console.log(pistas);
-  
-    mostrarPistas(pistas);
+    
+     mostrarPistas(pistas);
+
+
+    for(let pista of pistas){
+        console.log(pista.nombre)
+        contenedor.innerHTML += `<p>${pista.titulo}</p>`
+      }
   }
   
     
@@ -122,9 +130,11 @@ async function load2() {
 
 
 // load();
-load();
+load2();
 console.log(pistas)
 btnAgregar.addEventListener('click', agregarPista);
 btnDuracion.addEventListener('click', duracion);
+
+
 
 

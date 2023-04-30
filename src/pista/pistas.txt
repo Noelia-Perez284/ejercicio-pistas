@@ -1,0 +1,5 @@
+1,La Tortura,335,Shakira,2005
+2,Vivir Mi Vida,413,Marc Anthony,2013
+3,Bailando,404,Enrique Iglesias,2014
+4,Bohemian Rhapsody,360,Queen,1987
+5,Rasguña las Piedras,445,Sui Generis,1982
