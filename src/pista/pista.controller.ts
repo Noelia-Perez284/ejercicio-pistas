@@ -1,6 +1,7 @@
-import { Body, Controller, Get,Param, ParseIntPipe, Post  } from '@nestjs/common';
+import { Body, Controller, Get,Param, ParseIntPipe, ParseUUIDPipe, Post  } from '@nestjs/common';
 import { PistaService } from './pista.service';
 import { Pista } from './pista';
+import { CreatePistaDto } from 'src/dto/create-pista.dto';
 
 @Controller("pistas")
 export class PistaController {
@@ -8,20 +9,19 @@ export class PistaController {
 
     @Get() // url/pistas
     getPistas() : Pista[] {
-      return this.pistaService.getPistas('./src/pista/pistas.txt');
+      return this.pistaService.getPistas();
     }
 
-    // @Get(":id") // url/pistas/:id 
-    // getPistasById(@Param('id',ParseIntPipe) id:number): Pista {
-    //   return this.pistaService.getPistaById(id);
-    // }
+    @Get(":id") // url/pistas/:id 
+    getPistasById(@Param('id',ParseUUIDPipe) id:string): Pista {
+      return this.pistaService.getPistaById(id);
+    }
 
-    // @Post()
-    // postPista(@Body() body:any){
-    //   //deserializar un objeto json
-    //   const {titulo,duracion,interprete,lanzamiento}=body;
-    //   this.pistaService.newPista(titulo,duracion,interprete,lanzamiento)
-    //   return {body}
-    // }
+    @Post()
+    postPista(@Body() createPistadto:CreatePistaDto){
+      
+      this.pistaService.createPista(createPistadto);
+      
+    }
 }
   

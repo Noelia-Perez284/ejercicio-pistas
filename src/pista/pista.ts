@@ -1,5 +1,5 @@
 export class Pista{
-    id:number;
+    id:string;
     titulo:string;
     duracion:number;
     interprete:string;
@@ -7,7 +7,7 @@ export class Pista{
    
 
     constructor(
-        id:number,
+        id:string,
         titulo:string,
         duracion:number,
         interprete:string,
@@ -20,5 +20,9 @@ export class Pista{
         this.interprete=interprete;
         this.lanzamiento=lanzamiento;
         
+    }
+
+    toString(){
+        return `${this.id},${this.titulo},${this.duracion},${this.interprete},${this.lanzamiento}`
     }
 }

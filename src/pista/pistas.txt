@@ -1,5 +1,3 @@
-1,La Tortura,335,Shakira,2005
-2,Vivir Mi Vida,413,Marc Anthony,2013
-3,Bailando,404,Enrique Iglesias,2014
-4,Bohemian Rhapsody,360,Queen,1987
-5,Rasguña las Piedras,445,Sui Generis,1982
+22ff8191-0520-4873-b6d9-1efa58bb0785,La Chispa Adecuada,422,Héroes del Silencio,1900
+79814ade-710a-4a59-874f-2711f6b6e916,que locura,454,silos,1987
+14a306ca-e960-4025-8dca-4ae1352f35dc,que locura,345,silos,1987
