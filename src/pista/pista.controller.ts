@@ -20,8 +20,8 @@ export class PistaController {
     @Post()
     postPista(@Body() createPistadto:CreatePistaDto){
       
-      this.pistaService.createPista(createPistadto);
-      
+      return this.pistaService.createPista(createPistadto);
+  
     }
 }
   

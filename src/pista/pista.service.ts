@@ -7,7 +7,7 @@ import { CreatePistaDto } from 'src/dto/create-pista.dto';
 @Injectable()
 export class PistaService {
   private Pistas:Pista[]=[];
-  private url: string='./src/pista/pistas.txt'
+  private url: string='./src/pista/pistas2.txt'
 
   constructor(){
     let datos= fs.readFileSync(this.url, 'utf-8');
@@ -15,8 +15,9 @@ export class PistaService {
     //en el caso de que el archivo este vacio, realizo una validacion
     if(datos.length){ //si este valor es cero, no entra al if, ya que lo toma con false.
       let renglon= datos.split('\r\n');
-
     for(let linea of renglon){
+      //console.log(datos.length+"cantidad de lineas")
+      console.log(linea+"una linea")
       
       let partes=linea.split(',');
       
@@ -28,6 +29,8 @@ export class PistaService {
   }
 
   getPistas():Pista[]{
+    console.log("laspistas en service")
+    console.log(this.Pistas)
     return this.Pistas;
   }
   

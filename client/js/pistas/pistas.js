@@ -47,6 +47,7 @@ async function agregarPista() {
         alert("retorno true"+resp);
         pistas.push(nuevaPista);
         mostrarPistas();
+        
     } else{
         alert("errorrrr")
         alert("retorno false"+resp);
@@ -75,8 +76,10 @@ async function agregarPista() {
     return resp;
 
 }
-btnAgregar.addEventListener('click', agregarPista);
+
 load()
+btnAgregar.addEventListener('click', agregarPista);
+
 
 
 // function duracion () {
