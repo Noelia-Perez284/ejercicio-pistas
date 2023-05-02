@@ -1,3 +1,25 @@
-22ff8191-0520-4873-b6d9-1efa58bb0785,La Chispa Adecuada,422,Héroes del Silencio,1900
-79814ade-710a-4a59-874f-2711f6b6e916,que locura,454,silos,1987
-14a306ca-e960-4025-8dca-4ae1352f35dc,que locura,345,silos,1987
+87dff689-6360-4bd6-bab1-dc8c346c62d4,niña del sur,234,yorl,2023
+6c1827c7-2006-4528-a8a8-93719a160e55,chalten ,230,hurgo,1987
+4e7a73b9-e4aa-44e5-b9f7-a038a6124989,que mas se puede pedir,231,peteco,1998
+c40f446c-563f-4d2b-bca4-db28e447db6a,ando ganas,123,los piojos,2012
+60bf1253-8bc6-4c23-b7fa-2f232d5fbfe3,la nada,25,las pastillas,0
+82e95416-db24-4975-b2d7-da6f51999b3f,niña luna,234,raly,2012
+da55d0ef-b4c1-41ae-8ade-ccddbf00b059,fgfg,3,fgfg,1
+3845a4e9-849e-428c-b64f-c79a0eb8cdee,fgfg,3,fgfg,1
+e01795cf-0eaa-4fc4-b516-4a6363657c10,erreerer,1,ererer,1
+5981595a-312e-45a4-a45f-b9dac8caa3f7,dfder,1,werwer,1
+ddb4abb0-91b8-4b13-b745-2352872fedb5,erer,1,erer,1
+4fbe34a9-472f-4a4a-ae04-e87fcba68bec,qqq,1,www,1
+246c170f-075d-4f1f-aa6b-36737d68b892,eee,2,rrr,1
+9658d1cd-da78-4eec-9261-800d8d7dad87,www,1,ewe,1
+10633b1a-8c5f-4963-a39f-4796a7b44480,aaa,1,asas,1
+91a02382-91d1-4d4e-8f60-b73c210cbeee,sds,1,sdsd,1
+feeb566f-b542-435e-adaf-80bdb15c2106,wewe,1,www,0
+4b628560-5c22-4e99-bc4e-b02d355c3062,www,1,www,1
+3d982fcd-6af2-4dfd-88c0-1a655c3b27da,wwwee,1,wwwww,1
+d4ff3fb9-8ecb-448a-9fba-7b5d0b5e537a,sdsd,1,sdsd,1
+61c0d2c7-18ff-48f7-a39d-81df6ce01c45,xxxx,1,xxxx,2
+0faca2fd-cdeb-4259-938d-1ac958bf6fbe,ttryyytt,0,var,2012
+27777abf-4d7e-45b9-b1f3-5dc9765330c7,ttryyytt,8,bgtre,2012
+e87a6739-5c07-4b30-b5df-7a53358ef729,noe,0,vals,2021
+68c44573-c643-4314-8111-24c5978b3b5e,prueba,45,vals,0
