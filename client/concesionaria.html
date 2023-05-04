@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionaria</title>
+    <link href="css/concesionaria.css" rel="StyleSheet" type="text/css">
+</head>
+
+<body>
+    <h1>Registro de Vehiculos</h1>
+
+    <div id="botonesPrincipales">
+        <button type="button" id="listaVehiculos">Vehiculos</button>
+        <button type="button" id="listaAutos">Autos</button>
+        <button type="button" id="listarCamionetas">Camionetas</button>
+    </div>
+
+    <div id="">
+        <table>
+            <thead>
+                <td>Patente</td>
+                <td>Marca</td>
+                <td>Modelo</td>
+                <td>Año</td>
+                <td>Precio</td>
+                <td>Capacidad de carga</td>
+                <td>Tipo de Vehiculo</td>
+            </thead>
+
+            <tbody id="tablaVehiculos"></tbody>
+
+        </table>
+
+    </div>
+
+    <div>
+        <form action="">
+
+            <label for="patente">Patente:</label>
+            <input type="text" name="" value="" id="patente">
+
+            <label for="marca">Marca:</label>
+            <input type="text" name="" value="" id="marca">
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" name="" value="" id="modelo">
+
+            <label for="año">Año:</label>
+            <input type="number" name="" value="" id="año">
+
+            <label for="precio">Precio:</label>
+            <input type="number" name="" value="" id="precio">
+
+            <label for="capacidad">Capacidad de carga:</label>
+            <input type="number" name="" value="" id="capacidad">
+
+            
+
+            <input type="button" onclick="crearNuevoVehiculo()" value="Agregar">
+            <!-- <button type="button" id="btnAgregar">Agregar</button> -->
+            <input type="reset">
+        </form>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <td>Patente</td>
+                <td>Marca</td>
+                <td>Modelo</td>
+                <td>Año</td>
+                <td>Precio</td>
+                <td>Capacidad de carga</td>
+                <td>Tipo de Vehiculo</td>
+                
+            </thead>
+            <tbody id="tablaTemporariaVehiculos"></tbody>
+        </table>
+        <button type="button" id="btnGuardar">Guardar</button>
+    </div>
+    <script src="js/vehiculos/vehiculos.js"></script>
+</body>
+
+</html>

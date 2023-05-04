@@ -9,3 +9,4 @@ HHH888,Ford,F-150,2021,35000,2000,Pickup
 III999,Chevrolet,Impala,2010,5000,500,Sedan
 ytr678,Chevrolet,Cruze,201,12000, 400,auto
 bdc456,Chevrolet,nilon,2015,123454, 800,camioneta
+dddd,,eeee,222,222, 2,undefined

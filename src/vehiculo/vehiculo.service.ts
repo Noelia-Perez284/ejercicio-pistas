@@ -60,7 +60,18 @@ export class VehiculoService {
         this.Vehiculos.push(newVehiculo); //aca subo el nuevo vehiculo al arreglo
 
         const dataArchivoTxt = this.Vehiculos.length ? "\n" + newVehiculo.toString() : newVehiculo.toString(); //paso a texto los atibutos del objeto newVehiculo
+       
         fs.appendFileSync(this.url, dataArchivoTxt)//aca escribo el vehiculo creado al txt
+    }
+
+    deleteVehiculo(patente:string):boolean {
+        const vehiculoAEliminar=this.Vehiculos.findIndex((e)=>{return e.patente===patente});
+
+        if(vehiculoAEliminar!=-1){
+            this.Vehiculos.splice(vehiculoAEliminar,1);
+            return true;
+        }
+        return false;
     }
 
 
