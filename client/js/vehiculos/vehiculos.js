@@ -2,7 +2,7 @@ let btnListaVehiculos=document.getElementById("listaVehiculos");
 let bntListaAutos=document.getElementById("listaAutos");
 let btnListaCamionetas=document.getElementById("listaCamionetas");
 let btnGuardar=document.getElementById("btnGuardar");
-// let btnAgregar=document.getElementById("btnAgregar")
+let errorDeCarga=document.getElementById("errorDeCarga")
 
 let listaVehiculos =[];
 let listaTemporariaVehiculos=[];
@@ -22,6 +22,7 @@ function mostrarTodosLosVehiculos(){
         <td>${vehiculo.precio}</td>
         <td>${vehiculo.capacidadDeCarga}</td>
         <td>${vehiculo.tipoDeVehiculo}</td>
+        <td><a href='http://localhost:3000/vehiculoDetalle.html?index=${vehiculo.patente}' > Ver detalles </a> </td>
         </tr>`
     }
     contenedorLista.innerHTML=tabla
@@ -30,14 +31,21 @@ function mostrarTodosLosVehiculos(){
 
 
 async function load(){
-    alert("entro a la fun load")
-    const respuesta= await fetch("http://localhost:3000/vehiculo");
-    alert(respuesta +"resp")
-    listaVehiculos= await respuesta.json();
-    alert(listaVehiculos)
-    console.log(listaVehiculos)
-    mostrarTodosLosVehiculos();
-
+     try {
+        const respuesta= await fetch("http://localhost:3000/vehiculo");
+        
+        if(!respuesta.ok){
+            throw new Error("Network response was not ok");
+        }else{
+            listaVehiculos= await respuesta.json();
+            mostrarTodosLosVehiculos();
+        }
+        
+     } catch (error) {
+        console.log(error)
+        errorDeCarga.inert="<h1>Connection error</h1>";
+     }
+    
 }
 
 
@@ -114,6 +122,6 @@ async function guardarVehiculoEnServidor(){
 
 load();
 btnGuardar.addEventListener('click', guardarVehiculoEnServidor )
-// btnAgregar.addEventListener('click', crearNuevoVehiculo)
+
 
 

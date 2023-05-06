@@ -2,8 +2,9 @@ import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post } from '@nest
 import { VehiculoService } from './vehiculo.service';
 import { get } from 'http';
 import { Vehiculo } from './vehiculo';
-import { createVehiculoDto } from 'src/dto/createVehiculoDto';
+import { CreateVehiculoDto } from 'src/dto/createVehiculoDto';
 import { validate } from 'class-validator';
+
 
 @Controller('vehiculo')
 export class VehiculoController {
@@ -15,33 +16,22 @@ export class VehiculoController {
     }
 
 
-    @Get(":patente")
+    @Get("porpatente/:patente")
     getVehiculoByPatente(@Param('patente') patente:string): Vehiculo{
         return this.vehiculoService.getVehiculoByPatente(patente)
     }
 
-    @Post()
-    async postVehiculo(@Body() createVehiculoDto : any[]){
-        console.log("reciboVVVVCCCCVVV:");
-        console.log(createVehiculoDto);
-        const errors = [];
-        for (const vehicle of createVehiculoDto) {
-            const validationErrors = await validate(vehicle);
-            if (validationErrors.length > 0) {
-              errors.push(validationErrors);
-            } else {
-              // código para guardar el vehículo en la base de datos
-            }
-        }
+   @Get('autos')
+   getVehiculosAutos(){
+    console.log("-----------------------------llego aa aitosss")
+        return this.vehiculoService.getListaAutos()
+    }
+    
 
-        //const errors = await validate(createVehiculoDto);
-    // if (errors.length > 0) {
-    //     console.log("los errores son")
-    //     console.log(errors)
-    //   //throw new Error('Datos de vehículos inválidos');
-    // }
-        console.log(createVehiculoDto);
-       return this.vehiculoService.createVehiculo(createVehiculoDto[0])
+    @Post()
+    postVehiculo(@Body() createVehiculoDto : CreateVehiculoDto){
+    
+       return this.vehiculoService.createVehiculo(createVehiculoDto)
     }
 
     @Delete(":patente")
@@ -49,7 +39,3 @@ export class VehiculoController {
         return this.vehiculoService.deleteVehiculo(patente)
     }
 }
-// export class ListaVehiculos {
-//     listado:createVehiculoDto;
-  
-//   }

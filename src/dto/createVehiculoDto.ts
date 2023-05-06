@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString, MaxLength, MinLength, isNumber, maxLength } from "class-validator";
 
-export class createVehiculoDto{
+export class CreateVehiculoDto{
     @IsString()
     @MinLength(6)
     @IsNotEmpty()

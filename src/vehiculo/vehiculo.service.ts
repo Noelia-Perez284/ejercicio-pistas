@@ -1,8 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Vehiculo } from './vehiculo';
 import *as  fs from 'fs'
-import { createVehiculoDto } from 'src/dto/createVehiculoDto';
-import { Pista } from 'src/pista/pista';
+import { CreateVehiculoDto } from 'src/dto/createVehiculoDto';
 
 @Injectable()
 export class VehiculoService {
@@ -33,21 +32,21 @@ export class VehiculoService {
     }
 
     getVehiculos(): Vehiculo[] {
-        console.log(this.Vehiculos)
         return this.Vehiculos;
     }
 
     getVehiculoByPatente(patente: string): Vehiculo {
         const vehiculoEncontrado = this.Vehiculos.find((vehiculo) => vehiculo.patente === patente)
-
-        if (!vehiculoEncontrado) {
-            throw new NotFoundException();
-        }
         return vehiculoEncontrado
     }
 
+    getListaAutos():Vehiculo[]{
+        let listaAutos=this.Vehiculos.filter(Vehiculo=>Vehiculo.tipoDeVehiculo==="A")
+        return listaAutos
+    }
 
-    createVehiculo(createVehiculoDto: createVehiculoDto) {
+
+    createVehiculo(createVehiculoDto: CreateVehiculoDto) {
 
         const newVehiculo = new Vehiculo(createVehiculoDto.patente,
             createVehiculoDto.marca,
