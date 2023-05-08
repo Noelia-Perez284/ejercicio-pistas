@@ -2,7 +2,8 @@ let btnListaVehiculos=document.getElementById("listaVehiculos");
 let bntListaAutos=document.getElementById("listaAutos");
 let btnListaCamionetas=document.getElementById("listaCamionetas");
 let btnGuardar=document.getElementById("btnGuardar");
-let errorDeCarga=document.getElementById("errorDeCarga")
+let errorDeCarga=document.getElementById("errorDeCarga");
+let infoCargaIncorrecta=document.getElementById("infoCargaIncorrecta")
 
 let listaVehiculos =[];
 let listaTemporariaVehiculos=[];
@@ -51,28 +52,56 @@ async function load(){
 
 //Esta funcion me agrega los vehiculos que ingreso al formulario
 function crearNuevoVehiculo(){
-    alert("entro a la funcion crear nuevo vehiculo")
-
     let tipoVehiculo="A";
-    
-    if (Number(document.getElementById("capacidad").value)>0){
-        alert("entro al if")
+    let patente=document.getElementById("patente").value;
+    let marca=document.getElementById("marca").value;
+    let modelo=document.getElementById("modelo").value;
+    let año=Number(document.getElementById("año").value);
+    let precio=Number(document.getElementById("precio").value);
+    let capacidadDeCarga=Number(document.getElementById("capacidad").value);
+
+    if(patente==""){
+        alert("Campo de patente, se esncuentra vacio")
+        infoCargaIncorrecta.innerHTML="Campo de patente, se encuentra vacio"
+        return false
+    }
+    if(marca==""){
+        alert("Campo de marca, se esncuentra vacio")
+        infoCargaIncorrecta.innerHTML="Campo de marca, se encuentra vacio"
+        return false
+    }
+    if(modelo==""){
+        alert("Campo de modelo, se esncuentra vacio")
+        infoCargaIncorrecta.innerHTML="Campo de modelo, se encuentra vacio"
+        return false
+    }
+    if(año<1950){
+        alert("Valor de año invalido")
+        infoCargaIncorrecta.innerHTML="Valor de año invalido, debe ser un numero mayor a 1950"
+        return false
+    }
+    if(precio<100){
+        alert("Valor de precio invalido")
+        infoCargaIncorrecta.innerHTML="Valor de precio invalido, debe ser un numero mayor a 100"
+        return false
+    }
+    if (capacidadDeCarga>0){
         tipoVehiculo="C";
     } 
 
     let nuevoVehiculo={
-        "patente":document.getElementById("patente").value,
-        "marca":document.getElementById("marca").value,
-        "modelo":document.getElementById("modelo").value,
-        "año":Number(document.getElementById("año").value),
-        "precio":Number(document.getElementById("precio").value),
-        "capacidadDeCarga":Number(document.getElementById("capacidad").value),
+        "patente":patente,
+        "marca":marca,
+        "modelo":modelo,
+        "año":año,
+        "precio":precio,
+        "capacidadDeCarga":capacidadDeCarga,
         "tipoDeVehiculo":tipoVehiculo,
     }
-   alert(nuevoVehiculo+ "creo el vehiculo")
-
-   listaTemporariaVehiculos.push(nuevoVehiculo);
+    
+    listaTemporariaVehiculos.push(nuevoVehiculo);
     cargarEnTablaTemp()
+    infoCargaIncorrecta.innerHTML=""
     
 }
 
