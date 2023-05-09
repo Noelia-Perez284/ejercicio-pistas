@@ -150,13 +150,14 @@ async function guardarVehiculoEnServidor(){
 async function listarAutos (){
     try {
         let respuesta=await fetch ("http://localhost:3000/vehiculo/lista/autos");
-        console.log(respuesta)
+        console.log(respuesta);
         if(!respuesta.ok){
         throw new Error("Network response was not ok");
         }else{
-            let listaAutos=await respuesta.json()
-            console.log(listaAutos)
-            mostrarTodosLosVehiculos()
+            let listaAutos=await respuesta.json();
+            console.log(listaAutos);
+            listaVehiculos=listaAutos;
+            mostrarTodosLosVehiculos();
         }
     }  catch (error) {
         console.log(error)
