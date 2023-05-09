@@ -185,8 +185,8 @@ async function listarCamionetas(){
 
 
 load();
-btnGuardar.addEventListener('click', guardarVehiculoEnServidor )
+btnGuardar.addEventListener('click', guardarVehiculoEnServidor );
 
-bntListaAutos.addEventListener('click',listarAutos)
-btnListaCamionetas.addEventListener('click',listarCamionetas)
-
+bntListaAutos.addEventListener('click',listarAutos);
+btnListaCamionetas.addEventListener('click',listarCamionetas);
+btnListaVehiculos.addEventListener('click',load);
