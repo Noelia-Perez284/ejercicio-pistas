@@ -8,34 +8,37 @@ import { validate } from 'class-validator';
 
 @Controller('vehiculo')
 export class VehiculoController {
-    constructor(private readonly vehiculoService:VehiculoService){}
+    constructor(private readonly vehiculoService: VehiculoService) { }
 
     @Get()
-    getVehiculos():Vehiculo[]{
+    getVehiculos(): Vehiculo[] {
         return this.vehiculoService.getVehiculos()
     }
 
 
-    @Get("porpatente/:patente")
-    getVehiculoByPatente(@Param('patente') patente:string): Vehiculo{
+    @Get("/:patente")
+    getVehiculoByPatente(@Param('patente') patente: string): Vehiculo {
         return this.vehiculoService.getVehiculoByPatente(patente)
     }
 
-   @Get('autos')
-   getVehiculosAutos(){
-    console.log("-----------------------------llego aa aitosss")
+    @Get("lista/autos")
+    getVehiculosAutos() {
         return this.vehiculoService.getListaAutos()
     }
-    
+
+    @Get("lista/camionetas")
+    getVehiculosCamionetas(){
+        return this.vehiculoService.getListaCamionetas()
+    }
 
     @Post()
-    postVehiculo(@Body() createVehiculoDto : CreateVehiculoDto){
-    
-       return this.vehiculoService.createVehiculo(createVehiculoDto)
+    postVehiculo(@Body() createVehiculoDto: CreateVehiculoDto) {
+
+        return this.vehiculoService.createVehiculo(createVehiculoDto)
     }
 
     @Delete(":patente")
-    deleteVehiculo(@Param ('patente') patente:string): boolean{
+    deleteVehiculo(@Param('patente') patente: string): boolean {
         return this.vehiculoService.deleteVehiculo(patente)
     }
 }

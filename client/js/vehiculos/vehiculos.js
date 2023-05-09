@@ -8,7 +8,7 @@ let infoCargaIncorrecta=document.getElementById("infoCargaIncorrecta")
 let listaVehiculos =[];
 let listaTemporariaVehiculos=[];
 
-
+//-------Funcion  Mostrar Vehiculos------
 function mostrarTodosLosVehiculos(){
     let tabla='';
     let contenedorLista=document.getElementById("tablaVehiculos");
@@ -29,8 +29,7 @@ function mostrarTodosLosVehiculos(){
     contenedorLista.innerHTML=tabla
 }
 
-
-
+//------Funcion Cargar Vehiculos----
 async function load(){
      try {
         const respuesta= await fetch("http://localhost:3000/vehiculo");
@@ -48,7 +47,6 @@ async function load(){
      }
     
 }
-
 
 //Esta funcion me agrega los vehiculos que ingreso al formulario
 function crearNuevoVehiculo(){
@@ -146,11 +144,49 @@ async function guardarVehiculoEnServidor(){
         alert("No se pudo enviar los datos")
         alert(error)
     }
-
 }
+
+//funcion para listar autos
+async function listarAutos (){
+    try {
+        let respuesta=await fetch ("http://localhost:3000/vehiculo/lista/autos");
+        console.log(respuesta)
+        if(!respuesta.ok){
+        throw new Error("Network response was not ok");
+        }else{
+            let listaAutos=await respuesta.json()
+            console.log(listaAutos)
+            mostrarTodosLosVehiculos()
+        }
+    }  catch (error) {
+        console.log(error)
+    }
+}
+
+//-------listar Camionetas-----
+async function listarCamionetas(){
+    alert("entro en listar camionetas")
+    try {
+        let respuesta= await fetch("http://localhost:3000/vehiculo/lista/camionetas");
+        console.log(respuesta)
+        if(!respuesta.ok){
+            throw new Error("Network response was not ok");
+        }else{
+            let listaCamionetas=await respuesta.json();
+            console.log(listaCamionetas)
+            listaVehiculos=listaCamionetas;
+            mostrarTodosLosVehiculos();
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 
 load();
 btnGuardar.addEventListener('click', guardarVehiculoEnServidor )
 
-
+bntListaAutos.addEventListener('click',listarAutos)
+btnListaCamionetas.addEventListener('click',listarCamionetas)
 

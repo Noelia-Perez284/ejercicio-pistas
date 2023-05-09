@@ -45,6 +45,11 @@ export class VehiculoService {
         return listaAutos
     }
 
+    getListaCamionetas():Vehiculo[]{
+        let listaCamionetas=this.Vehiculos.filter(Vehiculo=>Vehiculo.tipoDeVehiculo==="C")
+        return listaCamionetas
+    }
+
 
     createVehiculo(createVehiculoDto: CreateVehiculoDto) {
 
