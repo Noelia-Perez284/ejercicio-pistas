@@ -1,9 +1,10 @@
-import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseUUIDPipe, Post } from '@nestjs/common';
 import { VehiculoService } from './vehiculo.service';
 import { get } from 'http';
 import { Vehiculo } from './vehiculo';
 import { CreateVehiculoDto } from 'src/dto/createVehiculoDto';
 import { validate } from 'class-validator';
+
 
 
 @Controller('vehiculo')
@@ -32,9 +33,14 @@ export class VehiculoController {
     }
 
     @Post()
-    postVehiculo(@Body() createVehiculoDto: CreateVehiculoDto) {
-
-        return this.vehiculoService.createVehiculo(createVehiculoDto)
+    async postVehiculo(@Body() loteVehiculosDto: CreateVehiculoDto[]) {
+        for (const vehiculo of loteVehiculosDto) {
+            const errors = await validate(vehiculo);
+            if (errors.length > 0) {
+              throw new HttpException('Datos de entrada inválidos', HttpStatus.BAD_REQUEST);
+            }
+        }
+        return this.vehiculoService.almacenarVehiculos(loteVehiculosDto);
     }
 
     @Delete(":patente")

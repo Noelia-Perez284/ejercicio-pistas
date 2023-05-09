@@ -51,21 +51,24 @@ export class VehiculoService {
     }
 
 
-    createVehiculo(createVehiculoDto: CreateVehiculoDto) {
+    almacenarVehiculos(loteVehiculosDto: CreateVehiculoDto[]) {
 
-        const newVehiculo = new Vehiculo(createVehiculoDto.patente,
-            createVehiculoDto.marca,
-            createVehiculoDto.modelo,
-            createVehiculoDto.año,
-            createVehiculoDto.precio,
-            createVehiculoDto.capacidadDeCarga,
-            createVehiculoDto.tipo)
+        for(let vehiculo of loteVehiculosDto){
+            const newVehiculo = new Vehiculo(vehiculo.patente,
+                vehiculo.marca,
+                vehiculo.modelo,
+                vehiculo.año,
+                vehiculo.precio,
+                vehiculo.capacidadDeCarga,
+                vehiculo.tipoDeVehiculo)
+    
+            this.Vehiculos.push(newVehiculo); //aca subo el nuevo vehiculo al arreglo
+    
+            const dataArchivoTxt = this.Vehiculos.length ? "\n" + newVehiculo.toString() : newVehiculo.toString(); //paso a texto los atibutos del objeto newVehiculo
+           
+            fs.appendFileSync(this.url, dataArchivoTxt)//aca escribo el vehiculo creado al txt
+        }
 
-        this.Vehiculos.push(newVehiculo); //aca subo el nuevo vehiculo al arreglo
-
-        const dataArchivoTxt = this.Vehiculos.length ? "\n" + newVehiculo.toString() : newVehiculo.toString(); //paso a texto los atibutos del objeto newVehiculo
-       
-        fs.appendFileSync(this.url, dataArchivoTxt)//aca escribo el vehiculo creado al txt
     }
 
     deleteVehiculo(patente:string):boolean {

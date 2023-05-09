@@ -27,5 +27,5 @@ export class CreateVehiculoDto{
     
     @IsString()
     @IsNotEmpty()
-    readonly tipo:string;
+    readonly tipoDeVehiculo:string;
 }

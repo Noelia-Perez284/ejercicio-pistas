@@ -8,4 +8,6 @@ GGG777,Toyota,Rav4,2016,18000,500,C
 HHH888,Ford,F-150,2021,35000,2000,C
 III999,Chevrolet,Impala,2010,5000,500,A
 ytr678,Chevrolet,Cruze,201,12000, 400,A
-bdc456,Chevrolet,nilon,2015,123454, 800,C
+abc234,fort,fiesta,2015,30000000, 0,A
+res345,chevrolet,gol,2014,2399876444, 445,C
+hyt678,kia,fun,2013,3455555555, 0,A

@@ -125,7 +125,7 @@ function cargarEnTablaTemp(){
 
 //funcion que envia el array de vehiculos cargados en el formulario al servidor
 async function guardarVehiculoEnServidor(){
-    alert("entro en la funcion cargar")
+    alert("entro en la funcion cargar en servidor")
 
     try {
 
@@ -137,7 +137,7 @@ async function guardarVehiculoEnServidor(){
         console.log(respuesta)
         if(respuesta.ok){
             listaTemporariaVehiculos=[];
-            mostrarTodosLosVehiculos()
+            load();
         }
         
     } catch (error) {
