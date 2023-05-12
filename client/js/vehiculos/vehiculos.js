@@ -125,8 +125,6 @@ function cargarEnTablaTemp(){
 
 //funcion que envia el array de vehiculos cargados en el formulario al servidor
 async function guardarVehiculoEnServidor(){
-    alert("entro en la funcion cargar en servidor")
-
     try {
 
         let respuesta=await fetch('/vehiculo',{
@@ -134,9 +132,9 @@ async function guardarVehiculoEnServidor(){
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify(listaTemporariaVehiculos)
         }) 
-        console.log(respuesta)
         if(respuesta.ok){
             listaTemporariaVehiculos=[];
+            cargarEnTablaTemp();
             load();
         }
         
@@ -166,15 +164,13 @@ async function listarAutos (){
 
 //-------listar Camionetas-----
 async function listarCamionetas(){
-    alert("entro en listar camionetas")
+   
     try {
         let respuesta= await fetch("http://localhost:3000/vehiculo/lista/camionetas");
-        console.log(respuesta)
         if(!respuesta.ok){
             throw new Error("Network response was not ok");
         }else{
             let listaCamionetas=await respuesta.json();
-            console.log(listaCamionetas)
             listaVehiculos=listaCamionetas;
             mostrarTodosLosVehiculos();
         }
